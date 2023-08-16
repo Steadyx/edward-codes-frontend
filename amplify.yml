@@ -1,34 +1,15 @@
-version: 0.2
+version: 1
 
-phases:
-  install:
-    runtime-versions:
-      nodejs: 18
-    commands:
-      - echo Installing dependencies...
-      - npm install
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - npm ci
+    build:
+      commands:
+        - npm run build
+  artifacts:
+    baseDirectory: build
+    files:
+      - '**/*'
 
-  pre_build:
-    commands:
-      - echo Pre-build steps...
-        npm install -g vite
-      - npm run build
-
-  build:
-    commands:
-      - installing vite
-      - npm install -g vite
-      - echo Building the project...
-      - npm run build
-
-artifacts:
-  files:
-    - build/**/*
-    - package.json
-    - package-lock.json
-    - Procfile
-    - node_modules/**/*
-
-cache:
-  paths:
-    - "node_modules/**/*"
