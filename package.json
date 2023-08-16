@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && cp package.json build/ && cp package-lock.json build/ && cp Procfile build/",
+    "build": "./node_modules/.bin/vite && cp package-lock.json build/ && cp Procfile build/",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "serve": "http-server build/"
   },
