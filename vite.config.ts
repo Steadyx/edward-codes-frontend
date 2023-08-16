@@ -2,7 +2,7 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
 
-const isProduction = process.env.NODE_ENV === 'production';
+const isProduction = process.env.NODE_ENV === 'prod';
 
 const backendURL = isProduction 
   ? 'http://backend-email-serverice-env.eba-yzyimp2w.eu-west-2.elasticbeanstalk.com'
