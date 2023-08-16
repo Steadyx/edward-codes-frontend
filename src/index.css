@@ -1,0 +1,357 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/static/stticMontserrat-Light.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/static/stticMontserrat-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/static/Montserrat-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/static/Montserrat-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/static/Montserrat-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #270b35;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+.chevron-bounce {
+  animation: bounce 1s infinite;
+}
+
+.title-underline::after {
+  content: "";
+  display: block;
+  width: 100px; /* Adjust the width as needed */
+  height: 4px; /* Adjust the height/thickness as needed */
+  background: linear-gradient(
+    90deg,
+    #d53f8c,
+    #f56565
+  ); /* Gradient from pink to red */
+  margin: 10px auto 0; /* Center the underline and add some space between the title and the underline */
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-5px);
+  }
+  60% {
+    transform: translateY(-3px);
+  }
+}
+
+.timeline-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.timeline-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(100%);
+  width: 2px;
+  background-color: #ddd;
+}
+
+.timeline-node {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 10px;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 60px;
+  opacity: 0;
+  transform: translateX(-50px);
+  transition:
+    opacity 0.5s,
+    transform 0.5s;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.timeline-content {
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 450px;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  /* For tablets and smaller screens */
+  .timeline-item {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .timeline-node {
+    bottom: -10px;
+    top: auto;
+  }
+
+  .timeline-content {
+    margin-top: 30px;
+    width: 80%;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  /* For mobile screens */
+  h2 {
+    font-size: 2rem;
+  }
+
+  .timeline-content {
+    width: 90%;
+  }
+}
+
+.contact-form-container {
+  max-width: 800px;
+  margin: 20px auto;
+  background-color: #2f1050;
+  position: relative; /* This ensures the toast positions itself with respect to this container */
+  padding-top: 60px; /* Space for the toast */
+}
+
+.toast {
+  position: absolute;
+  top: 0; /* Position it at the top of the .contact-form-container */
+  left: 0;
+  visibility: hidden; /* Hide the toast initially */
+  z-index: 10; /* Ensure the toast is above other elements */
+  width: calc(
+    100% - 20px
+  ); /* Take the full width of the .contact-form-container minus the padding */
+  padding: 10px; /* Padding for the toast */
+  text-align: center; /* Center the text inside the toast */
+  background-color: #fff; /* Background color for the toast */
+  font-weight: 500; /* Font weight for the toast */
+  border-radius: 5px; /* Rounded corners for the toast */
+  opacity: 0;
+  transform: translateY(-100%);
+  transition:
+    transform 0.6s ease-in-out,
+    opacity 0.6s ease-in-out;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.toast.transitioning {
+  visibility: visible;
+}
+
+input,
+textarea {
+  background-color: #3f2060; /* Slightly lighter shade for better contrast */
+  color: #fff;
+  border: 1px solid #ddd;
+  transition: border-color 0.3s;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #red-500;
+  outline: none;
+}
+
+button {
+  background-color: #red-500;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #red-600;
+  cursor: pointer;
+}
+
+label {
+  color: #ddd; /* Lighter color for better readability against the dark background */
+}
+
+.toast.success {
+  background-color: #4caf50; /* Green for success */
+}
+
+.toast.error {
+  background-color: #f44336; /* Red for error */
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  padding: 10px 15px;
+  background-color: #2f1050;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.3s,
+    visibility 0.3s;
+  outline: none;
+  font-size: 1.5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+  cursor: pointer;
+}
+
+.nav-item {
+  position: relative;
+  transition: transform 0.3s; 
+  display: inline-block;
+  will-change: transform; /* Hint to the browser */
+  cursor: pointer;
+}
+
+.nav-item:hover {
+  transform: scale(1.1);
+}
+
+.nav-item::before {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  height: 3px;
+  border-radius: 3px;
+  width: 0;
+  background: #2F1050;
+  transition: width 0.3s ease, left 0.3s ease;
+  will-change: width, left; /* Hint to the browser */
+}
+
+.nav-item:hover::before {
+  width: 100%;
+  left: 0;
+}
+
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
