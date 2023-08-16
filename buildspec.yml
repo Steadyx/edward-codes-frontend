@@ -20,8 +20,12 @@ phases:
 
 artifacts:
   files:
-    - '**/*'
-  base-directory: 'build' # or the directory where your build outputs to
+    - build/**/*
+    - package.json
+    - package-lock.json
+    - Procfile
+    - node_modules/**/*
+
 
 cache:
   paths:
