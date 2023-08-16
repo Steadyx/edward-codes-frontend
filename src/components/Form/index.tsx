@@ -63,9 +63,8 @@ const ContactForm = forwardRef<HTMLDivElement, ContactFormProps>(
         return;
       }
 
-      // Send the form data to the backend
       try {
-        const response = await fetch("http://backend-email-serverice-env.eba-yzyimp2w.eu-west-2.elasticbeanstalk.com/api/send-email", {
+        const response = await fetch("/api/send-email", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
