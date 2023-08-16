@@ -15,7 +15,7 @@ const About = forwardRef<HTMLDivElement, AboutProps>((props, ref) => {
       items: [
         "Born in 🇧🇸",
         "Grew up there all my life",
-        "Moved to Lonon, UK in 2016",
+        "Moved to London, UK in 2016",
       ],
     },
     {
