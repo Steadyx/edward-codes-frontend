@@ -5,9 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && cp Procfile build/Procfile",
+    "build": "vite build && cp package.json build/ && cp package-lock.json build/ && cp Procfile build/",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "serve": "./node_modules/.bin/http-server ./build -p 8080"
+    "serve": "http-server build/"
   },
   "dependencies": {
     "http-server": "^14.1.1",
