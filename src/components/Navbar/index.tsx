@@ -1,4 +1,4 @@
-import React, { useState, useEffect, forwardRef } from "react";
+import React, { useState, useEffect } from "react";
 
 interface NavBarProps {
   sectionRefs: {
@@ -20,13 +20,9 @@ const Navbar: React.FC<NavBarProps> = ({ sectionRefs }) => {
     }
   };
 
-  const navContent = {
-    items: ["Home", "About", "Experience", "Contact"],
-  };
-
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth > 640) {
+      if (window.innerWidth < 640) {
         setIsMobile(false);
         setIsOpen(false);
       } else {
@@ -42,18 +38,12 @@ const Navbar: React.FC<NavBarProps> = ({ sectionRefs }) => {
   }, []);
 
   return (
-    <div
-      className={`p-4 rounded-full max-w-4xl mx-auto my-10 relative ${isOpen || isMobile
-          ? "p-0"
-          : "bg-gradient-to-r from-purple-600 via-pink-500 to-red-500"
-        }`}
-    >
-      <ul className="hidden sm:flex justify-between text-2xl font-bold font-montserrat text-2F1050">
+    <div className="p-4 rounded-full max-w-4xl mx-auto my-10 relative navbar-container">
+      <ul className="hidden sm:flex justify-between text-2xl font-bold font-montserrat text-2F1050 desktop-navbar">
         {Object.keys(sectionRefs).map((sectionName) => (
           <li key={sectionName} className="mx-8 nav-item">
             <button
               onClick={() => scrollToSection(sectionName)}
-              // no padding or margin on the button
               className="focus:outline-none py-0 px-0"
             >
               {sectionName}
@@ -62,11 +52,12 @@ const Navbar: React.FC<NavBarProps> = ({ sectionRefs }) => {
         ))}
       </ul>
 
-      <div className="sm:hidden absolute top-4 right-4 z-50">
+      <div className="sm:hidden fixed top-10 right-4 z-50">
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className={`focus:outline-none ${isOpen || (isMobile && "fixed right-0 top-50")
-            }`}
+          className={`focus:outline-none ${
+            isOpen || (isMobile && "fixed right-0 top-50")
+          }`}
         >
           {isOpen ? (
             <svg
@@ -103,12 +94,21 @@ const Navbar: React.FC<NavBarProps> = ({ sectionRefs }) => {
       </div>
       {/* Mobile Menu */}
       <ul
-        className={`fixed inset-0 w-screen h-screen bg-red-500 flex flex-col justify-center items-center text-2xl font-bold font-montserrat text-2F1050 transform transition-transform duration-500 ${isOpen ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"
-          } sm:hidden z-10`}
+        className={`fixed inset-0 w-screen h-screen bg-red-500 flex flex-col justify-center items-center text-2xl font-bold font-montserrat text-2F1050 transform transition-transform duration-500 ${
+          isOpen ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"
+        } sm:hidden z-10`}
       >
-        {navContent.items.map((item) => (
-          <li key={item} className="mb-2 w-full text-center py-2" onClick={() => setIsOpen(false)}>
-            {item}
+        {Object.keys(sectionRefs).map((sectionName) => (
+          <li key={sectionName} className="mx-8 nav-item">
+            <button
+              onClick={() => {
+                scrollToSection(sectionName);
+                setIsOpen(false);
+              }}
+              className="focus:outline-none py-0 px-0"
+            >
+              {sectionName}
+            </button>
           </li>
         ))}
       </ul>

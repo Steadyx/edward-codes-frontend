@@ -300,6 +300,29 @@ label {
   cursor: pointer;
 }
 
+/* Default styles for desktop */
+.navbar-container {
+  background: linear-gradient(to right, #9c27b0, #e91e63, #f44336);
+}
+
+.desktop-navbar {
+  height: auto;
+  overflow: visible;
+}
+
+/* Styles for mobile */
+@media (max-width: 640px) {
+  .navbar-container {
+    background: none;
+  }
+
+  .desktop-navbar {
+    height: 0;
+    overflow: hidden;
+  }
+}
+
+
 .nav-item {
   position: relative;
   transition: transform 0.3s; 
