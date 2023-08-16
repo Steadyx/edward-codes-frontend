@@ -107,7 +107,7 @@ const Navbar: React.FC<NavBarProps> = ({ sectionRefs }) => {
           } sm:hidden z-10`}
       >
         {navContent.items.map((item) => (
-          <li key={item} className="mb-2 w-full text-center py-2">
+          <li key={item} className="mb-2 w-full text-center py-2" onClick={() => setIsOpen(false)}>
             {item}
           </li>
         ))}
