@@ -57,7 +57,7 @@ const About = forwardRef<HTMLDivElement, AboutProps>((props, ref) => {
         {aboutContent.map((section) => (
           <div
             key={section.title}
-            className={`${section.color} p-4 sm:p-6 rounded-lg shadow-md w-full sm:w-64 mb-6 sm:mb-0`}
+            className={`${section.color} p-4 sm:p-6 rounded-lg shadow-md w-full sm:w-80 mb-6 sm:mb-0`}
           >
             <h3 className="font-bold text-xl mb-4 text-2F1050 font-montserrat">
               {section.title}

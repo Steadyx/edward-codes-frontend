@@ -99,13 +99,13 @@ const Navbar: React.FC<NavBarProps> = ({ sectionRefs }) => {
         } sm:hidden z-10`}
       >
         {Object.keys(sectionRefs).map((sectionName) => (
-          <li key={sectionName} className="mx-8 nav-item">
+          <li key={sectionName} className="mx-8 my-4 nav-item transform -skew-x-6">
             <button
               onClick={() => {
                 scrollToSection(sectionName);
                 setIsOpen(false);
               }}
-              className="focus:outline-none py-0 px-0"
+                className="focus:outline-none py-0 px-0 text-shadow-lg tracking-wider"
             >
               {sectionName}
             </button>

@@ -106,7 +106,7 @@ meeting deadlines with exceptional attention to detail.`,
           Experience
         </h2>
         <div className="timeline-line" style={{ top: `${offsetTop}px` }}></div>
-        <div className={`${isMobile ? "mt-0" : "mt-60"}`}>
+        <div className="sm:mt-60">
           {experiences.map((exp, index) => {
             const [ref, inView] = useInView({
               triggerOnce: true,

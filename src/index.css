@@ -200,6 +200,10 @@ h1 {
   }
 }
 
+.text-shadow-lg {
+  text-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
 .contact-form-container {
   max-width: 800px;
   margin: 20px auto;
