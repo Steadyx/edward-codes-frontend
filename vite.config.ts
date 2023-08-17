@@ -2,11 +2,11 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
 
-const isProduction = process.env.NODE_ENV === 'prod';
+const isProduction = process.env.NODE_ENV === "prod";
 
-const backendURL = isProduction 
-  ? 'http://backend-email-serverice-env.eba-yzyimp2w.eu-west-2.elasticbeanstalk.com'
-  : 'http://localhost:8080';
+const backendURL = isProduction
+  ? "http://backend-email-serverice-env.eba-yzyimp2w.eu-west-2.elasticbeanstalk.com"
+  : "http://localhost:8080";
 
 export default defineConfig({
   plugins: [react()],

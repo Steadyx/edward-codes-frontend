@@ -8,7 +8,7 @@ interface LandingProps {
   refs: React.RefObject<HTMLDivElement>[];
 }
 
-const Landing = forwardRef<HTMLDivElement, LandingProps>((props, refs) => {
+const Landing = forwardRef<HTMLDivElement, LandingProps>((props) => {
   const [isMobile, setIsMobile] = useState(false);
 
   const { id } = props;

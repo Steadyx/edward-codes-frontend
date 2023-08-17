@@ -10,7 +10,6 @@ const Experience = React.forwardRef<HTMLDivElement, ExperienceProps>(
     const titleRef = useRef<HTMLHeadingElement>(null);
     const containerRef = useRef<HTMLDivElement | null>(null);
     const [offsetTop, setOffsetTop] = useState(0);
-    const [isMobile, setIsMobile] = useState(false);
 
     const { id } = props;
 
@@ -18,7 +17,7 @@ const Experience = React.forwardRef<HTMLDivElement, ExperienceProps>(
       {
         company: "Viooh",
         title: "Full Stack Developer",
-        duration: "October (2022) - July 2023",
+        duration: "October (2022) - July (2023)",
         description:
           'Developed and implemented the "planner" prototype, a user-centric system for visualising allocated data and Out-Of-Home marketing campaigns on a map. Collaborated with teams to integrate and release features in each sprint, including collapsible hero items and input fields, and performed bug fixes using Redux, TypeScript, Jest, ESlint, Prettier, etc.',
         color: "bg-purple-600",
@@ -26,7 +25,7 @@ const Experience = React.forwardRef<HTMLDivElement, ExperienceProps>(
       {
         company: "Squiz",
         title: "Front End Web Developer ",
-        duration: "June (2021) - September 2022",
+        duration: "June (2021) - September (2022)",
         description: `Collaborated with the React squad on an in-house application, handling state management via Context API
 and executing unit tests for component coverage. Assisted in building and redesigning websites for clients.`,
         color: "bg-purple-600",
@@ -34,7 +33,7 @@ and executing unit tests for component coverage. Assisted in building and redesi
       {
         company: "iTech Media",
         title: "Front End Web Developer",
-        duration: "August (2018) - 2021",
+        duration: "August (2018) - (2021)",
         description:
           "Implemented modern technologies such as VueJS, StorybookJS, SASS with BEM, and NodeJS to rebuild one of our main sites, ensuring smooth integration with CraftCMS.",
         color: "bg-purple-600",
@@ -67,22 +66,6 @@ meeting deadlines with exceptional attention to detail.`,
       "bg-purple-600",
     ];
 
-    useEffect(() => {
-      const handleResize = () => {
-        if (window.innerWidth <= 800) {
-          setIsMobile(true);
-        } else {
-          setIsMobile(false);
-        }
-      };
-
-      window.addEventListener("resize", handleResize);
-
-      return () => {
-        window.removeEventListener("resize", handleResize);
-      };
-    }, []);
-
     const combinedRef = (el: HTMLDivElement) => {
       if (typeof ref === "function") {
         ref(el);
@@ -95,7 +78,7 @@ meeting deadlines with exceptional attention to detail.`,
 
     return (
       <div
-        className="timeline-container bg-gray-800 py-20 sm:py-20 min-h-screen"
+        className="timeline-container bg-2F1050 py-20 sm:py-20 min-h-screen"
         ref={combinedRef}
         id={id}
       >

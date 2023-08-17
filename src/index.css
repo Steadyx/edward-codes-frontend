@@ -326,10 +326,9 @@ label {
   }
 }
 
-
 .nav-item {
   position: relative;
-  transition: transform 0.3s; 
+  transition: transform 0.3s;
   display: inline-block;
   will-change: transform; /* Hint to the browser */
   cursor: pointer;
@@ -340,21 +339,57 @@ label {
 }
 
 .nav-item::before {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -5px;
   left: 50%;
   height: 3px;
   border-radius: 3px;
   width: 0;
-  background: #2F1050;
-  transition: width 0.3s ease, left 0.3s ease;
+  background: #2f1050;
+  transition:
+    width 0.3s ease,
+    left 0.3s ease;
   will-change: width, left; /* Hint to the browser */
 }
 
 .nav-item:hover::before {
   width: 100%;
   left: 0;
+}
+
+.title-underline::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  margin: 10px auto 0;
+  background-color: #e54624;
+}
+
+.skill-circle-initial {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  transition: stroke-dashoffset 2s ease-in-out;
+}
+
+.skill-circle-visible {
+  transition: stroke-dashoffset 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s forwards;
 }
 
 
@@ -368,7 +403,6 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
-
 
 @media (prefers-color-scheme: light) {
   :root {
