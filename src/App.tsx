@@ -42,6 +42,7 @@ const App = () => {
   const sectionRefs = {
     Home: homeRef,
     About: aboutRef,
+    Skills: skillsRef,
     Experience: experienceRef,
     Contact: contactRef,
   };
