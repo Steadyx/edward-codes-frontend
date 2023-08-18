@@ -12,9 +12,9 @@ const App = () => {
   const aboutRef = useRef(null);
   const experienceRef = useRef<HTMLDivElement | null>(null);
   const contactRef = useRef(null);
-  const skillsRef = useRef<HTMLDivElement | null>(null); // Add this ref for the Skills section
+  const skillsRef = useRef<HTMLDivElement | null>(null); 
 
-  const [isSkillsVisible, setIsSkillsVisible] = useState(false); // State to track visibility of Skills section
+  const [isSkillsVisible, setIsSkillsVisible] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
