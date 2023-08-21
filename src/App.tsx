@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import NavBar from "@/components/Navbar";
+import Sidebar from "@/components/Sidebar";
 import Landing from "@/components/Landing";
 import About from "@/components/About";
 import Experience from "@/components/Experience";
@@ -50,6 +51,7 @@ const App = () => {
   return (
     <>
       <NavBar sectionRefs={sectionRefs} />
+      <Sidebar sectionRefs={sectionRefs} />
       <Landing id="Home" refs={[homeRef, aboutRef]} />
       <About id="About" ref={aboutRef} />
       <Skills ref={skillsRef} isVisible={isSkillsVisible} />

@@ -8,6 +8,7 @@ export default {
         "pink-500": "#FB329A",
         "red-500": "#FA3E72",
         "2F1050": "#2F1050",
+        "purple-900": "#270b35",
         "E54624": "#E54624",
       },
       fontFamily: {

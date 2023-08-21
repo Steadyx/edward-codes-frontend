@@ -82,14 +82,14 @@ h1 {
 .title-underline::after {
   content: "";
   display: block;
-  width: 100px; /* Adjust the width as needed */
-  height: 4px; /* Adjust the height/thickness as needed */
+  width: 100px; 
+  height: 4px; 
   background: linear-gradient(
     90deg,
     #d53f8c,
     #f56565
-  ); /* Gradient from pink to red */
-  margin: 10px auto 0; /* Center the underline and add some space between the title and the underline */
+  ); 
+  margin: 10px auto 0;
 }
 
 @keyframes bounce {
@@ -162,9 +162,7 @@ h1 {
   transform: translateX(0);
 }
 
-/* Media Queries for Responsiveness */
 @media (max-width: 768px) {
-  /* For tablets and smaller screens */
   .timeline-item {
     flex-direction: column;
     align-items: center;
@@ -208,24 +206,24 @@ h1 {
   max-width: 800px;
   margin: 20px auto;
   background-color: #2f1050;
-  position: relative; /* This ensures the toast positions itself with respect to this container */
-  padding-top: 60px; /* Space for the toast */
+  position: relative; 
+  padding-top: 60px; 
 }
 
 .toast {
   position: absolute;
-  top: 0; /* Position it at the top of the .contact-form-container */
+  top: 0; 
   left: 0;
-  visibility: hidden; /* Hide the toast initially */
-  z-index: 10; /* Ensure the toast is above other elements */
+  visibility: hidden; 
+  z-index: 10; 
   width: calc(
     100% - 20px
-  ); /* Take the full width of the .contact-form-container minus the padding */
-  padding: 10px; /* Padding for the toast */
-  text-align: center; /* Center the text inside the toast */
-  background-color: #fff; /* Background color for the toast */
-  font-weight: 500; /* Font weight for the toast */
-  border-radius: 5px; /* Rounded corners for the toast */
+  ); 
+  padding: 10px; 
+  text-align: center; 
+  background-color: #fff; 
+  font-weight: 500;
+  border-radius: 5px; 
   opacity: 0;
   transform: translateY(-100%);
   transition:
@@ -244,7 +242,7 @@ h1 {
 
 input,
 textarea {
-  background-color: #3f2060; /* Slightly lighter shade for better contrast */
+  background-color: #3f2060; 
   color: #fff;
   border: 1px solid #ddd;
   transition: border-color 0.3s;
@@ -267,21 +265,21 @@ button:hover {
 }
 
 label {
-  color: #ddd; /* Lighter color for better readability against the dark background */
+  color: #ddd; 
 }
 
 .toast.success {
-  background-color: #4caf50; /* Green for success */
+  background-color: #4caf50; 
 }
 
 .toast.error {
-  background-color: #f44336; /* Red for error */
+  background-color: #f44336;
 }
 
 .back-to-top {
   position: fixed;
-  bottom: 50px;
-  right: 50px;
+  bottom: 10px;
+  right: 10px;
   padding: 10px 15px;
   background-color: #2f1050;
   color: #fff;
@@ -304,7 +302,7 @@ label {
   cursor: pointer;
 }
 
-/* Default styles for desktop */
+
 .navbar-container {
   background: linear-gradient(to right, #9c27b0, #e91e63, #f44336);
 }
@@ -314,8 +312,8 @@ label {
   overflow: visible;
 }
 
-/* Styles for mobile */
-@media (max-width: 640px) {
+
+@media (max-width: 1024px) {
   .navbar-container {
     background: none;
   }
@@ -330,7 +328,7 @@ label {
   position: relative;
   transition: transform 0.3s;
   display: inline-block;
-  will-change: transform; /* Hint to the browser */
+  will-change: transform; 
   cursor: pointer;
 }
 
@@ -350,7 +348,7 @@ label {
   transition:
     width 0.3s ease,
     left 0.3s ease;
-  will-change: width, left; /* Hint to the browser */
+  will-change: width, left;
 }
 
 .nav-item:hover::before {
@@ -367,15 +365,18 @@ label {
   background-color: #e54624;
 }
 
+.skill-circle {
+  transition: strokeDashoffset 1s ease-in-out;
+}
+
 .skill-circle-initial {
-  stroke-dasharray: 100;
-  stroke-dashoffset: 100;
-  transition: stroke-dashoffset 2s ease-in-out;
+  strokeDashoffset: 100;
 }
 
 .skill-circle-visible {
-  transition: stroke-dashoffset 2s ease-in-out;
+  strokeDashoffset: 0;
 }
+
 
 @keyframes fadeIn {
   from {
@@ -392,8 +393,28 @@ label {
   animation: fadeIn 0.5s forwards;
 }
 
+.active--underline {
+  position: relative;
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.active--underline::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  width: 80%;
+  height: 2px;
+  border-radius: 20px;
+  background-color: #FA3E72;
+}
+
 
 button {
+  position: relative;
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;

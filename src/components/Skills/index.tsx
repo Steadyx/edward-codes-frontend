@@ -32,35 +32,57 @@ const groupedSkills = {
   Editor: [{ skill: "Neovim <3", percentage: 90 }],
 };
 
-const Skills = forwardRef<HTMLDivElement, SkillsProps>(({ isVisible }, ref) => {
+const Skills = forwardRef<HTMLDivElement, SkillsProps>((_, ref) => {
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
   const [allExpanded, setAllExpanded] = useState<boolean>(false);
+  const [visibleSections, setVisibleSections] = useState<
+    Record<string, boolean>
+  >({});
 
   const toggleSection = (section: string) => {
-    setExpandedSection((prev) => (prev === section ? null : section));
+    if (expandedSection === section) {
+      setExpandedSection(null);
+      setVisibleSections((prev) => ({
+        ...prev,
+        [section]: false,
+      }));
+    } else {
+      const updatedVisibility = { ...visibleSections };
+      if (expandedSection) {
+        updatedVisibility[expandedSection] = false;
+      }
+      updatedVisibility[section] = true;
+      setExpandedSection(section);
+      setVisibleSections(updatedVisibility);
+    }
   };
 
   const toggleAllSections = () => {
     if (allExpanded) {
       setExpandedSection(null);
+      setVisibleSections({});
     } else {
       setExpandedSection("all");
+      const allVisible = Object.fromEntries(
+        Object.keys(groupedSkills).map((key) => [key, true]),
+      );
+      setVisibleSections(allVisible);
     }
     setAllExpanded(!allExpanded);
   };
 
   return (
-    <div className="py-10 sm:py-60 bg-270b35 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={ref}>
+    <div
+      className="py-10 sm:py-60 bg-270b35 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+      ref={ref}
+    >
       <h2 className="text-center text-4xl font-semibold text-red-500 mb-10 font-montserrat title-underline">
         My Skills
       </h2>
       <p className="text-left text-white font-montserrat font-bold mb-10 text-lg max-w-2xl mx-auto">
         Here are some of the technologies I've worked with:
-        <br /> Learning is a never-ending process, and I'm always looking for new
-        technologies to work with!
-      </p>
-      <p className="text-center text-white font-montserrat font-bold mb-10 text-lg">
-
+        <br /> Learning is a never-ending process, and I'm always looking for
+        new technologies to work with!
       </p>
       <button
         onClick={toggleAllSections}
@@ -81,18 +103,18 @@ const Skills = forwardRef<HTMLDivElement, SkillsProps>(({ isVisible }, ref) => {
             </span>
           </button>
           <div
-            className={`mt-4 flex flex-wrap justify-start transition-max-height duration-500 overflow-hidden ${expandedSection === section || allExpanded
+            className={`mt-4 flex flex-wrap justify-start transition-max-height duration-500 overflow-hidden ${
+              expandedSection === section || allExpanded
                 ? "max-h-[1000px]"
                 : "max-h-0"
-              }`}
+            }`}
           >
             {skills.map((skillData) => (
               <Skill
                 key={skillData.skill}
-                {...skillData}
-                isVisible={
-                  isVisible && (expandedSection === section || allExpanded)
-                }
+                percentage={skillData.percentage}
+                skill={skillData.skill}
+                isVisible={visibleSections[section]}
               />
             ))}
           </div>

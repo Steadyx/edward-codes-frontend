@@ -89,7 +89,7 @@ meeting deadlines with exceptional attention to detail.`,
           Experience
         </h2>
         <div className="timeline-line" style={{ top: `${offsetTop}px` }}></div>
-        <div className="sm:mt-60">
+        <div className="lg:mt-60">
           {experiences.map((exp, index) => {
             const [ref, inView] = useInView({
               triggerOnce: true,
@@ -115,9 +115,6 @@ meeting deadlines with exceptional attention to detail.`,
                 className={`timeline-item ${inView ? "visible" : ""} ${isLeft ? "flex-row-reverse" : ""
                   }`}
               >
-                <div
-                  className={`timeline-node ${colors[index % colors.length]}`}
-                ></div>
                 <div
                   style={contentMarginStyle}
                   className={`timeline-content ${colors[index % colors.length]

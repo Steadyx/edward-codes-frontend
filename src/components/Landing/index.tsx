@@ -1,4 +1,4 @@
-import { useState, useEffect, forwardRef } from "react";
+import { useState, useEffect } from "react";
 import bgImage from "@/assets/background-image.png";
 import ChevronDown from "@/components/ChevronDown";
 import Tagline from "@/components/Tagline";
@@ -8,7 +8,7 @@ interface LandingProps {
   refs: React.RefObject<HTMLDivElement>[];
 }
 
-const Landing = forwardRef<HTMLDivElement, LandingProps>((props) => {
+const Landing: React.FC<LandingProps> = (props) => {
   const [isMobile, setIsMobile] = useState(false);
 
   const { id } = props;
@@ -58,6 +58,6 @@ const Landing = forwardRef<HTMLDivElement, LandingProps>((props) => {
       <ChevronDown nextSectionRef={aboutRef} />
     </div>
   );
-});
+};
 
 export default Landing;
