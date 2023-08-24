@@ -64,7 +64,7 @@ const ContactForm = forwardRef<HTMLDivElement, ContactFormProps>(
       }
 
       try {
-        const response = await fetch("/api/send-email", {
+        const response = await fetch("/api/hello", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

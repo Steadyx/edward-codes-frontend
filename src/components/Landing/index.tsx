@@ -34,7 +34,7 @@ const Landing: React.FC<LandingProps> = (props) => {
     <div
       className="flex flex-col justify-center items-center bg-bottom bg-no-repeat px-4 sm:px-0"
       style={{
-        backgroundImage: `linear-gradient(to bottom, rgba(39, 11, 53, 1) 0%, rgba(39, 11, 53, 0) 50%), url(${bgImage})`,
+        backgroundImage: `linear-gradient(to bottom, rgba(39, 11, 53, 1) 0%, rgba(39, 11, 53, 0) 50%), url(/background-image.png)`,
         backgroundSize: isMobile ? "cover" : "100%",
         backgroundRepeat: "no-repeat",
         backgroundPosition: isMobile ? "0 60%" : "0 80%",
