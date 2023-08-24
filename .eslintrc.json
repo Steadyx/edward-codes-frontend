@@ -3,6 +3,7 @@
   "parser": "@typescript-eslint/parser",
   "plugins": ["@typescript-eslint"],
   "rules": {
-  "react/display-name": "off"
-}
+
+    "react/display-name": "off"
+  }
 }
