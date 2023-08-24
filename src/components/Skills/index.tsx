@@ -79,11 +79,10 @@ const Skills = forwardRef<HTMLDivElement, SkillsProps>((_, ref) => {
       <h2 className="text-center text-4xl font-semibold text-red-500 mb-10 font-montserrat title-underline">
         My Skills
       </h2>
-      <p className="text-left text-white font-montserrat font-bold mb-10 text-lg max-w-2xl mx-auto">
-        Here are some of the technologies I've worked with:
-        <br /> Learning is a never-ending process, and I'm always looking for
-        new technologies to work with!
-      </p>
+      <p className="text-left text-white font-montserrat font-bold mb-10 text-lg max-w-2xl mx-auto">  Here are some of the technologies I&apos;ve worked with:
+  <br /> Learning is a never-ending process, and I&apos;m always looking for
+  new technologies to work with!
+</p>
       <button
         onClick={toggleAllSections}
         className="mb-4 p-2 font-montserrat font-bold rounded-lg hover:bg-opacity-90 transition-opacity duration-300"

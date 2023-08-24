@@ -11,22 +11,20 @@ const Toast: React.FC<{
   useEffect(() => {
     setIsTransitioning(true);
 
-    // This timer will start the "leave" transition after 3 seconds (or any desired duration)
     const transitionTimer = setTimeout(() => {
       setIsVisible(false);
     }, 3000);
 
-    // This timer ensures the "leave" transition has enough time to complete before calling onClose
     const visibilityTimer = setTimeout(() => {
       setIsTransitioning(false);
       onClose();
-    }, 3600); // 3000ms (duration before starting the leave transition) + 600ms (transition duration)
+    }, 3600); 
 
     return () => {
       clearTimeout(transitionTimer);
       clearTimeout(visibilityTimer);
     };
-}, []);
+}, [onClose]);
 
 
   return (

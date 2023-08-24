@@ -1,18 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 
 const BackToTop: React.FC = () => {
   const [showScrollButton, setShowScrollButton] = useState(false);
 
-  const checkScrollTop = () => {
+  const checkScrollTop = useCallback(() => {
     const scrollPosition = window.scrollY;
 
     if (scrollPosition > 400 && !showScrollButton) {
-        setShowScrollButton(true);
-    } else{
-        setShowScrollButton(false);
+      setShowScrollButton(true);
+    } else {
+      setShowScrollButton(false);
     }
-};
-
+  }, [showScrollButton]);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -21,7 +20,7 @@ const BackToTop: React.FC = () => {
   useEffect(() => {
     window.addEventListener("scroll", checkScrollTop);
     return () => window.removeEventListener("scroll", checkScrollTop);
-  }, []);
+  }, [checkScrollTop]);
 
   return (
     <div>
